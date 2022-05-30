@@ -15,7 +15,9 @@ export function ShoppingList() {
       .collection('products')
       // .where('quantity', '>', 6)
       // .limit(1)
-      .orderBy('description', 'asc')
+      .orderBy('quantity', 'asc')
+      .startAt(2)
+      .endAt(12)
       .onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => {
           return {
