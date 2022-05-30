@@ -14,7 +14,8 @@ export function ShoppingList() {
     const subscribe = firestore()
       .collection('products')
       // .where('quantity', '>', 6)
-      .limit(1)
+      // .limit(1)
+      .orderBy('description', 'asc')
       .onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => {
           return {
