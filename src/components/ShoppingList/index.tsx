@@ -16,8 +16,8 @@ export function ShoppingList() {
       // .where('quantity', '>', 6)
       // .limit(1)
       .orderBy('quantity', 'asc')
-      .startAt(2)
-      .endAt(12)
+      // .startAt(2)
+      // .endAt(12)
       .onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => {
           return {
