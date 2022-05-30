@@ -1,4 +1,4 @@
-package com.myshopping;
+package com.luanfv.myshopping;
 
 import android.os.Bundle;
 
