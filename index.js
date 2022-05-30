@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
-import '@react-native-firebase/app';
-import firestore from '@react-native-firebase/firestore';
+// import '@react-native-firebase/app';
+// import firestore from '@react-native-firebase/firestore';
 import { registerRootComponent } from 'expo';
 
 import App from './App';
