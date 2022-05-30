@@ -27,7 +27,15 @@ export function ShoppingList() {
       .catch((err) => {
         console.log(err)
       });
-  })
+  }, []);
+
+  // useEffect(() => {
+  //   firestore()
+  //     .collection('products')
+  //     .doc('x8GL2eo6hKMOO1gCrM46')
+  //     .get()
+  //     .then((response) => console.log(response.id, response.data()))
+  // }, []);
 
   return (
     <FlatList
