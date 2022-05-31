@@ -24,8 +24,38 @@ export function SignIn() {
       .then(() => {
         Alert.alert('Usuário criado com sucesso!');
       })
-      .catch(() => {
-        Alert.alert('Não foi possível criar usuário!');
+      .catch((err) => {
+        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.Auth#error-codes_9
+        switch (err.code) {
+          case 'auth/email-already-in-use':
+            Alert.alert(
+              'Não foi possível criar usuário!',
+              'Esse e-mail já está sendo utilizado por outro usuário.'
+            );
+
+            break;
+
+          case 'auth/invalid-email':
+            Alert.alert(
+              'Não foi possível criar usuário!',
+              'E-mail é inválido.'
+            );
+
+            break;
+
+          case 'auth/weak-password':
+            Alert.alert(
+              'Não foi possível criar usuário!',
+              'Senha muito fraca.'
+            );
+
+            break;
+
+          default:
+            Alert.alert('Não foi possível criar usuário!');
+
+            break;
+        }
       });
   }
 
