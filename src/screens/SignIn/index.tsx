@@ -59,6 +59,32 @@ export function SignIn() {
       });
   }
 
+  function handleSignIWithEmailAndPassword() {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        console.log(user);
+      })
+      .catch((err) => {
+        // https://firebase.google.com/docs/reference/js/v8/firebase.auth.Auth#error-codes_9
+        switch (err.code) {
+          case 'auth/user-not-found':
+          case 'auth/wrong-password':
+            Alert.alert(
+              'Não foi possível fazer autenticação!',
+              'E-mail ou senha inválido.'
+            );
+
+            break;
+
+          default:
+            Alert.alert('Não foi possível fazer autenticação!');
+
+            break;
+        }
+      });
+  }
+
   return (
     <Container>
       <Title>MyShopping</Title>
@@ -76,7 +102,7 @@ export function SignIn() {
         onChangeText={setPassword}
       />
 
-      <Button title="Entrar" onPress={handleSignInAnonymously} />
+      <Button title="Entrar" onPress={handleSignIWithEmailAndPassword} />
 
       <Account>
         <ButtonText title="Recuperar senha" onPress={() => { }} />
